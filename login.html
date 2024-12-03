@@ -1,0 +1,61 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Elyvea</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-green-900 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h1 class="text-3xl font-bold text-center text-green-900 mb-6">Elyvea</h1>
+        <form id="loginForm" class="space-y-4">
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"
+                    required
+                />
+            </div>
+            <div>
+                <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                <input 
+                    type="password" 
+                    id="password" 
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"
+                    required
+                />
+            </div>
+            <div>
+                <a 
+                    href="index.html" 
+                    id="loginButton"
+                    class="block w-full text-center bg-green-600 text-white font-medium py-2 px-4 rounded-md hover:bg-green-700 cursor-not-allowed pointer-events-none"
+                >
+                    Login
+                </a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById("loginForm");
+        const loginButton = document.getElementById("loginButton");
+
+        form.addEventListener("input", () => {
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            if (email && password) {
+                loginButton.classList.remove("cursor-not-allowed", "pointer-events-none", "bg-green-600");
+                loginButton.classList.add("bg-green-500", "hover:bg-green-600");
+            } else {
+                loginButton.classList.add("cursor-not-allowed", "pointer-events-none", "bg-green-600");
+                loginButton.classList.remove("bg-green-500", "hover:bg-green-600");
+            }
+        });
+    </script>
+</body>
+</html>
